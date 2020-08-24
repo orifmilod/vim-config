@@ -1,17 +1,43 @@
 noremap <leader>w :w<CR>
 noremap <leader>q :q<CR>
-map <leader>b  :NERDTreeToggle<CR>
+noremap <leader>qa :qa<CR>
+noremap <leader>bd :bd<CR>
+noremap <leader>vs :vs<CR>
+noremap <leader>ya :%y+<CR>
+noremap yd yyp<CR>
+noremap yu yyP<CR>
+map <leader>z  :NERDTreeToggle<CR>
 noremap <leader>f :FZF<cr>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 map <Space> <leader>
 " let mapleader = "\<Space>"
 " let g:mapleader = "\<Space>"
-"
+
+
+" FZF
+" map <leader>b :Buffers<CR>
+nnoremap <leader>gg :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>m :Marks<CR>
+
+function! ToggleNERDTree()
+  NERDTreeToggle
+  silent NERDTreeMirror
+endfunction
+
+
+"Close all buffers
+nnoremap <leader>bca :w <bar> %bd <bar> e# <bar> bd# <CR>
+
 " I hate escape more than anything else
 inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap lk <Esc>
 inoremap kl <Esc>
+
+"Shortcut for replace keywoards, (something like multicusor)
+nnoremap <leader>rr :%s///g<Left><Left><Left>
+nnoremap <leader>ra :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 "remap delete and cut commands
 nnoremap d "_d
@@ -25,11 +51,13 @@ vnoremap <leader>d ""d
 vnoremap < <gv
 vnoremap > >gv
 
-" Better window navigation
-nnoremap <S-h> <C-w>h
-nnoremap <S-j> <C-w>j
-nnoremap <S-k> <C-w>k
-nnoremap <S-l> <C-w>l
+nnoremap <leader>u :UndotreeShow<CR>
+"Better window navigation
+nnoremap <leader>h <C-w>h
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader> <C-w>j
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>

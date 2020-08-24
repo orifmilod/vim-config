@@ -4,6 +4,8 @@ let s:comment_map = {
     \   "go": '\/\/',
     \   "java": '\/\/',
     \   "javascript": '\/\/',
+    \   "typescript": '\/\/',
+    \   "tsx": '\/\/',
     \   "lua": '--',
     \   "scala": '\/\/',
     \   "php": '\/\/',
@@ -24,7 +26,9 @@ let s:comment_map = {
     \   "vim": '"',
     \   "tex": '%',
     \ }
-autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
+autocmd FileType javascript.js setlocal commentstring={/*\ %s\ */}
+autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
+
 function! ToggleComment()
     if has_key(s:comment_map, &filetype)
         let comment_leader = s:comment_map[&filetype]

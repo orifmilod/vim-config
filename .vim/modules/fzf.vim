@@ -9,12 +9,14 @@ let g:fzf_action = {
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" command! -bang -nargs=* Rg call fzf#vim#rg(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" command! -bang -nargs=* Rg
+  " \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" command! -bang -nargs=* Rg
+      " \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      " \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
-map <C-f> :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>g :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
 
 
 let g:fzf_tags_command = 'ctags -R'
@@ -47,10 +49,10 @@ command! -bang -nargs=? -complete=dir Files
 
 
 " Get text in files with Rg
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+" command! -bang -nargs=* Rg
+  " \ call fzf#vim#grep(
+  " \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), {'options': '--delimiter : --nth 4..'},
+  " \   fzf#vim#with_preview(), <bang>0)
 
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
@@ -68,3 +70,12 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), {'options': '--delimiter : --nth 4..'}, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=* Rg 
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 
+  \ 1, 
+  \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 
+  \ <bang>0)
+
