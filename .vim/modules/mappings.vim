@@ -4,15 +4,19 @@ noremap <leader>qa :qa<CR>
 noremap <leader>bd :bd<CR>
 noremap <leader>vs :vs<CR>
 noremap <leader>ya :%y+<CR>
+noremap <leader>da ggVG""d<CR>
 noremap yd yyp<CR>
 noremap yu yyP<CR>
+
 map <leader>z  :NERDTreeToggle<CR>
 noremap <leader>f :FZF<cr>
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 map <Space> <leader>
 " let mapleader = "\<Space>"
 " let g:mapleader = "\<Space>"
 
+"Move line up and down
+" nnoremap gu :m .-2<CR>
+" nnoremap gd :m .+1<CR>
 
 " FZF
 " map <leader>b :Buffers<CR>
@@ -24,7 +28,6 @@ function! ToggleNERDTree()
   NERDTreeToggle
   silent NERDTreeMirror
 endfunction
-
 
 "Close all buffers
 nnoremap <leader>bca :w <bar> %bd <bar> e# <bar> bd# <CR>
@@ -54,7 +57,7 @@ vnoremap > >gv
 nnoremap <leader>u :UndotreeShow<CR>
 "Better window navigation
 nnoremap <leader>h <C-w>h
-nnoremap <leader>k <C-w>k
+nnoremap <leader>k <C-Up><CR>
 nnoremap <leader>l <C-w>l
 nnoremap <leader>j <C-w>j
 nnoremap <leader> <C-w>j

@@ -26,8 +26,6 @@ let s:comment_map = {
     \   "vim": '"',
     \   "tex": '%',
     \ }
-autocmd FileType javascript.js setlocal commentstring={/*\ %s\ */}
-autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
 
 function! ToggleComment()
     if has_key(s:comment_map, &filetype)
@@ -49,6 +47,11 @@ function! ToggleComment()
     end
 endfunction
 
+
+noremap <leader>/ gcc<CR>
+
+nnoremap <leader>/ :call ToggleComment()<cr>
+vnoremap <leader>/ :call ToggleComment()<cr> 
 
 nnoremap <leader>/ :call ToggleComment()<cr>
 vnoremap <leader>/ :call ToggleComment()<cr> 

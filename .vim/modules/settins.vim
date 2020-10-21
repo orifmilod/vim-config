@@ -18,11 +18,11 @@ set encoding=utf8
 set number relativenumber
 set nu rnu
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
+    \ ['brown',       'RoyalBlue2'],
+    \ ['Darkblue',    'SeaGreen2'],
+    \ ['darkgray',    'DarkOrchid2'],
     \ ['darkgreen',   'Firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkcyan',    'RoyalBlue2'],
     \ ['darkred',     'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['brown',       'Firebrick3'],
