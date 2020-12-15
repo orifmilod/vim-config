@@ -33,10 +33,11 @@ endfunction
 nnoremap <leader>bca :w <bar> %bd <bar> e# <bar> bd# <CR>
 
 " I hate escape more than anything else
-inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap lk <Esc>
-inoremap kl <Esc>
+inoremap zz <Esc>
+" inoremap kk <Esc>
+" inoremap jj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
 
 "Shortcut for replace keywoards, (something like multicusor)
 nnoremap <leader>rr :%s///g<Left><Left><Left>
@@ -63,10 +64,6 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader> <C-w>j
 
 " Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
 nnoremap gf <C-W>gf
 vnoremap gf <C-W>gf
 
@@ -80,3 +77,13 @@ noremap <Right> <Nop>
 noremap <C-]>  :bn<cr>
 noremap <C-[>  :bp<cr>
 
+
+" Formating cpp files
+map <C-K> :pyf  /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
+
+function! Formatonsave()
+  let l:formatdiff = 1
+  pyf /usr/local/opt/clang-format/share/clang/clang-format.py
+endfunction
+
+autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()

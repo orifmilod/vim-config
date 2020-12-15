@@ -33,7 +33,7 @@ endfunction
 
 command! -nargs=0 CompileAndRun call TermWrapper(printf('g++ -std=c++11 %s && ./a.out', expand('%')))
 command! -nargs=1 CompileAndRunWithFile call TermWrapper(printf('g++ -std=c++11 %s && ./a.out < %s', expand('%'), <args>))
-autocmd FileType cpp nnoremap <leader>fw :CompileAndRun<CR>
+" autocmd FileType cpp nnoremap <leader>fw :CompileAndRun<CR>
 
 " For those of you that like to use the default ./a.out
 " This C++ toolkit gives you commands to compile and/or run in different types
@@ -43,11 +43,9 @@ autocmd FileType cpp nnoremap <leader>fw :CompileAndRun<CR>
 augroup CppToolkit
 	autocmd!
 	if g:os == 'Darwin'
-		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++11 -o %:r % && open -a Terminal './a.out'<CR>
+		autocmd FileType cpp nnoremap <leader>nn :!g++ -std=c++11 -o %:r % && open -a Terminal './a.out'<CR>
+		autocmd FileType cpp nnoremap <leader>nl :!g++ -std=c++11 -o %:r % && './%:r'<CR>
 	endif
-	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++11 % && ./a.out<CR>
-	autocmd FileType cpp nnoremap <leader>fr :!./a.out<CR>
-	autocmd FileType cpp nnoremap <leader>fw :CompileAndRun<CR>
 augroup END
 
 " For those of you that like to use -o and a specific outfile executable
@@ -57,10 +55,10 @@ augroup END
 augroup CppToolkit
 	autocmd!
 	if g:os == 'Darwin'
-		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++11 -o %:r % && open -a Terminal './%:r'<CR>
+		autocmd FileType cpp nnoremap <leader>nn :!g++ -std=c++11 -o %:r % && open -a Terminal './%:r'<CR>
+		autocmd FileType cpp nnoremap <leader>nl :!g++ -std=c++11 -o %:r % && './%:r'<CR>
+
 	endif
-	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++11 -o %:r % && ./%:r<CR>
-	autocmd FileType cpp nnoremap <leader>fr :!./%:r.out<CR>
 augroup END
 
 " options

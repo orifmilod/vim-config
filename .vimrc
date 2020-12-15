@@ -54,7 +54,3 @@ set clipboard=unnamed
 set encoding=utf-8
 set fileencoding=utf-8
 lang en_US.UTF-8
-" Let clangd fully control code completion
-" let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-" let g:ycm_clangd_binary_path = exepath("clangd")
