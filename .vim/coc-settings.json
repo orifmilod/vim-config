@@ -1,0 +1,5 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript"],
+  "clangd.fallbackFlags": ["-std=c++17"],
+  "clangd.path": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clangd"
+}

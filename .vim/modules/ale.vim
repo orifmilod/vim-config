@@ -11,4 +11,5 @@ let g:ale_fixers = {
 \    'scss': ['prettier'],
 \    'html': ['prettier']
 \}
+
 let g:ale_fix_on_save = 0

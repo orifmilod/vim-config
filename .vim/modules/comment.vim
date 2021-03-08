@@ -24,6 +24,7 @@ let s:comment_map = {
     \   "bat": 'REM',
     \   "ahk": ';',
     \   "vim": '"',
+    \   "txt": '#',
     \   "tex": '%',
     \ }
 

@@ -9,35 +9,22 @@ noremap yd yyp<CR>
 noremap yu yyP<CR>
 
 map <leader>z  :NERDTreeToggle<CR>
-noremap <leader>f :FZF<cr>
+noremap <leader>f :Files<cr>
 map <Space> <leader>
-" let mapleader = "\<Space>"
-" let g:mapleader = "\<Space>"
-
-"Move line up and down
-" nnoremap gu :m .-2<CR>
-" nnoremap gd :m .+1<CR>
-
-" FZF
-" map <leader>b :Buffers<CR>
 nnoremap <leader>gg :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
 
 function! ToggleNERDTree()
   NERDTreeToggle
   silent NERDTreeMirror
 endfunction
 
-"Close all buffers
+"Close all buffers except current
 nnoremap <leader>bca :w <bar> %bd <bar> e# <bar> bd# <CR>
+" nnoremap <leader>bca :%bd|e# <CR>
+" nnoremap <leader>bca :%bd\|e#|bd#<CR>
 
 " I hate escape more than anything else
 inoremap zz <Esc>
-" inoremap kk <Esc>
-" inoremap jj <Esc>
-" inoremap jk <Esc>
-" inoremap kj <Esc>
 
 "Shortcut for replace keywoards, (something like multicusor)
 nnoremap <leader>rr :%s///g<Left><Left><Left>
@@ -56,14 +43,13 @@ vnoremap < <gv
 vnoremap > >gv
 
 nnoremap <leader>u :UndotreeShow<CR>
+
 "Better window navigation
 nnoremap <leader>h <C-w>h
 nnoremap <leader>k <C-Up><CR>
 nnoremap <leader>l <C-w>l
 nnoremap <leader>j <C-w>j
-nnoremap <leader> <C-w>j
 
-" Use alt + hjkl to resize windows
 nnoremap gf <C-W>gf
 vnoremap gf <C-W>gf
 
@@ -74,16 +60,7 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-noremap <C-]>  :bn<cr>
-noremap <C-[>  :bp<cr>
 
-
-" Formating cpp files
-map <C-K> :pyf  /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
-
-function! Formatonsave()
-  let l:formatdiff = 1
-  pyf /usr/local/opt/clang-format/share/clang/clang-format.py
-endfunction
-
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+"Navigate between buffers
+map <leader>] :bn<cr>
+map <leader>[ :bp<cr>
