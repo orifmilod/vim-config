@@ -47,4 +47,4 @@ highlight iCursor guifg=white guibg=steelblue
 set guicursor=n-v:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
-" setlocal spell spelllang=en_us
+set formatoptions=
