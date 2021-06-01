@@ -45,3 +45,8 @@ function notify() {
         pingme "Command $ARGS on $(hostname) has failed" &> /dev/null;
     fi
 }
+
+export ZSH="/Users/orifmilod/.oh-my-zsh"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
